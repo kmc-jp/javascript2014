@@ -3,7 +3,9 @@ JavaScriptで世界平和2014
 
 JavaScript make world peace forever!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-資料を置く予定。
+資料などを置く予定。
+
+- 資料は[Wiki](https://github.com/kmc-jp/javascript2014/wiki)に並べておきます。
 
 ## ライセンス
 
