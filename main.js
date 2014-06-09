@@ -2,11 +2,10 @@
 var welcome = document.getElementById('welcome');
 welcome.addEventListener('click',function(){
 	alert('welcome');
-	var w = document.getElementById('welcome');
-	w.value = '';
+	welcome.value = '';
 	var star = document.createElement('p'),
 		text = document.createTextNode('I have prepared wonderful background images for you!');
-	document.body.appendChild(star).appendChild(text);
+	document.body.appendChild(star.appendChild(text));
 });
 
 //timer
