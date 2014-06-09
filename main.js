@@ -2,6 +2,11 @@
 var welcome = document.getElementById('welcome');
 welcome.addEventListener('click',function(){
 	alert('welcome');
+	var w = document.getElementById('welcome');
+	w.value = '';
+	var star = document.createElement('p'),
+		text = document.createTextNode('I have prepared wonderful background images for you!');
+	document.body.appendChild(star).appendChild(text);
 });
 
 //timer
@@ -13,13 +18,10 @@ timer.addEventListener('click',function(){
 	},tm*1000);
 });
 
-/*
 //select box
-var box = document.getElementById('bgImageSelect');
-box.addEventListener('change',function(){
-	var v = document.getElementById('bgImageSelect').value
-	if(v === 1){
-		alert("あなたはtypeBを選択している");
-	}
-});
-*/
+var img = document.getElementById('bgImageSelect');
+whiteList = ['http://image.space.rakuten.co.jp/d/strg/ctrl/9/31311fe852f710aac67cf478a8ea8c4934ef7d37.72.2.9.2.jpeg','http://p.twpl.jp/show/large/j3BKm','http://f.st-hatena.com/images/fotolife/p/pema/20130327/20130327105952.gif'];
+img.addEventListener('change',function(){
+	document.body.style.background = 'url("' + whiteList[img.value] + '")'
+})
+
