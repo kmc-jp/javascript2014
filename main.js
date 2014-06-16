@@ -1,3 +1,4 @@
+//profileを変更する
 $('#name').on('click',function(){
 	if ( $('#profile').css('display') === 'none' ){
 		$('#profile').css('display','block');
@@ -5,20 +6,19 @@ $('#name').on('click',function(){
 		$('#profile').css('display','none');
 	}})
 
-n = 0
+//<h2>を代入し、ボタンをクリックしたらそのボタン名に変えていくようにしたけど、nのまま代入しちゃうとボタン名はそのボタン名がクリックされた時のものになってしまうのでしまうので関数を作ってnを代入していく形式にした(今考えたら新しい変数を非グローバルで作ればいけたっぽい？)
 
+function AddBtn(n){
+		var buttonid = "#button" + n;
+		$('#profile').append('<h2>うごいているよ</h2>\n<input type="button" id="button' + n + '" value="んんん">');
+		//buttonについて
+		$(buttonid).on('click',function(){
+			$(buttonid).val("ぼたん" + n);
+			})
+		}
+
+var n = 0
 $('#welcome').on('click',function(){
-	$('#profile').append('<h2>うごいているよ</h2>\n<input type="button" id="button' + n + '" value="んんん">')
-	n = n + 1
-})
-
-var test = function(d,s,id){
-	var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-	if(!d.getElementById(id)){
-		js=d.createElemen    t(s);
-		js.id=id;
-		js.src=p+'://platform.twitter.com/widgets.js';
-		fjs.parentNode.insertBefore(js,fjs);
-		}}
-
-document.getElementById('twitter').addEventListener('click',test(document,'script','twitter-wjs'))
+		AddBtn(n);
+		n = n + 1
+		})
