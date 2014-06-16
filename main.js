@@ -22,3 +22,7 @@ $('#welcome').on('click',function(){
 		AddBtn(n);
 		n = n + 1
 		})
+
+$('#clr').on('change',function(){
+		$('#back').css('background-color',$('#clr').val());
+		})
