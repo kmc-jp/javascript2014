@@ -2,11 +2,25 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<script src='//code.jquery.com/jquery-2.1.1.min.js'></script>
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
 	<script src='2048.js'></script>
+	<style>
+		.tile{
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			font-size: 30px;
+			display: inline-block;
+			border: solid black 2px;
+		}
+	</style>
 	<title></title>
 </head>
 <body>
-
+	<div id='settings'>
+		<input type='button' id='startBtn' value='Start'/>
+	</div>
+	<div id='gridArea'>
+	</div>
 </body>
 </html>
