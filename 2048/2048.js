@@ -1,23 +1,66 @@
 $(function(){
-$('#start').on('click',function(){start();setTimeout(function(){console.log(session)},1000)})
+$('#start').on('click',function(){start();});
+$(window).keydown(function(event){
+    //上
+    if(event.which == 38){
+        $('#direction').html("↑");
+        get(0);
+    };
+    //下
+    if(event.which == 40){
+        $('#direction').html("↓");
+        get(2);
+    };
+    //左
+    if(event.which == 37){
+        $('#direction').html("←");
+        get(3);
+    };
+    //右
+    if(event.which == 39){
+        $('#direction').html("→");
+        get(1);
+    };
+});
 
-var session = null;
+var session;
 
 function start(){
-	$.ajax({
-		url: 'http://2048.semantics3.com/hi/start/json',
-		dataType: 'json',
-		data: {},
-		method: 'GET'
-	}).done(function(data){
-		for (var i=0; i<4 ; i++){
-			$('#2048').append(data['grid'][i] + "<br/>");
-		}
-		session = data['session_id']
-	})
-}
+    //get started
+    $.ajax({
+        url: 'http://2048.semantics3.com/hi/start/json',
+        dataType: 'json',
+        data: {},
+        method: 'GET'
+    }).done(function(data){
+        for (var i=0; i<4 ; i++){
+            for(var j=0; j<4; j++){
+                document.getElementById('disp').rows[i].cells[j].innerHTML
+                                    = data['grid'][i][j];
+            }
+        }
+        $('#game').css('display','block');
+        ///get sessionid
+        session = data['session_id'];
+    });
+};
 
-})
+function get(direction){
+    //get grid
+    $.ajax({
+        url: 'http://2048.semantics3.com/hi/state/' + session + '/move/' + direction + "/json",
+        dataType: 'json',
+        data: {},
+        method: 'GET'
+    }).done(function(data){
+        for (var i=0; i<4 ; i++){
+            for(var j=0; j<4; j++){
+                document.getElementById('disp').rows[i].cells[j].innerHTML
+                                    = data['grid'][i][j];
+            }
+        }
+    });
+};
 
 
-
+});

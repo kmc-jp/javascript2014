@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8"/>
-	<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
-	<script src='2048.js'></script>
-	<title>2048 AI</title>
+    <meta charset="utf-8"/>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src='2048.js'></script>
+    <title>2048 AIじゃないです</title>
+    <style>
+        #game {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-<input type='button' id='start' value='start'>
-<div id='2048'>
+<input type='button' id='start' value='start'/>
+<div id='game'>
+<table id='disp'>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+     <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+</table>
+direction: <span id='direction'></span>
 </div>
 </body>
 </html>
