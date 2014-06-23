@@ -25,6 +25,8 @@ $(window).keydown(function(event){
 
 var session;
 
+var numColor = {0:"#BDBDBD",2:"#1C1C1C",4:"#151515",8:"#088A29",16:"#0101DF",32:"#088A29",64:"#FF0040",128:"#088A08",256:"#9A2EFE",512:"#5FB404",1024:"#FE2EF7",2048:"#DF7401"}
+
 function start(){
     //get started
     $.ajax({
@@ -37,6 +39,8 @@ function start(){
             for(var j=0; j<4; j++){
                 document.getElementById('disp').rows[i].cells[j].innerHTML
                                     = data['grid'][i][j];
+                id = '#tag' + String(i) + String(j)
+                $(id).css("color",numColor[data['grid'][i][j]])
             }
         }
         $('#game').css('display','block');
@@ -57,7 +61,9 @@ function get(direction){
             for(var j=0; j<4; j++){
                 document.getElementById('disp').rows[i].cells[j].innerHTML
                                     = data['grid'][i][j];
-            }
+                id = '#tag' + String(i) + String(j)
+                $(id).css("color",numColor[data['grid'][i][j]])
+           }
         }
     });
 };
