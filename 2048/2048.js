@@ -58,7 +58,7 @@ $(function(){
         direction = 3;
         break;
       }
-      if(direction){
+      if(direction !== null){
         this.moveTiles(direction);
       }
     }else{
