@@ -3,22 +3,22 @@ $('#start').on('click',function(){start();});
 $(window).keydown(function(event){
     //上
     if(event.which == 38){
-        $('#direction').html("↑");
+        $('#direction').text("↑");
         get(0);
     };
     //下
     if(event.which == 40){
-        $('#direction').html("↓");
+        $('#direction').text("↓");
         get(2);
     };
     //左
     if(event.which == 37){
-        $('#direction').html("←");
+        $('#direction').text("←");
         get(3);
     };
     //右
     if(event.which == 39){
-        $('#direction').html("→");
+        $('#direction').text("→");
         get(1);
     };
 });
@@ -37,10 +37,10 @@ function start(){
     }).done(function(data){
         for (var i=0; i<4 ; i++){
             for(var j=0; j<4; j++){
-                document.getElementById('disp').rows[i].cells[j].innerHTML
-                                    = data['grid'][i][j];
+                $('#start').val('reset')
                 id = '#tag' + String(i) + String(j)
-                $(id).css("color",numColor[data['grid'][i][j]])
+                $(id).text(data['grid'][i][j]).css("color",numColor[data['grid'][i][j]])
+                $('#score').text(data['score'])
             }
         }
         $('#game').css('display','block');
@@ -59,10 +59,12 @@ function get(direction){
     }).done(function(data){
         for (var i=0; i<4 ; i++){
             for(var j=0; j<4; j++){
-                document.getElementById('disp').rows[i].cells[j].innerHTML
-                                    = data['grid'][i][j];
                 id = '#tag' + String(i) + String(j)
-                $(id).css("color",numColor[data['grid'][i][j]])
+                $(id).text(data['grid'][i][j]).css("color",numColor[data['grid'][i][j]])
+                $('#score').text(data['score'])
+                if(data['over'] === true){
+                    $('#score').append(" <<<<< over!!! >>>>>")
+                    }
            }
         }
     });
